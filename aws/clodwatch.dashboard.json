@@ -1,0 +1,174 @@
+{
+  "widgets": [
+      {
+          "type": "metric",
+          "x": 0,
+          "y": 1,
+          "width": 9,
+          "height": 6,
+          "properties": {
+              "metrics": [
+                  [ "AWS/ApiGateway", "Count", "ApiId", "<apigateway.apiId>" ]
+              ],
+              "view": "timeSeries",
+              "stacked": false,
+              "region": "us-east-1",
+              "period": 60,
+              "stat": "Sum",
+              "yAxis": {
+                  "left": {
+                      "label": "RPM",
+                      "min": 0,
+                      "showUnits": false
+                  }
+              },
+              "title": "Requests"
+          }
+      },
+      {
+          "type": "metric",
+          "x": 18,
+          "y": 1,
+          "width": 6,
+          "height": 6,
+          "properties": {
+              "metrics": [
+                  [ "AWS/ApiGateway", "5xx", "ApiId", "<apigateway.apiId>" ],
+                  [ ".", "4xx", ".", "." ]
+              ],
+              "view": "timeSeries",
+              "stacked": false,
+              "region": "us-east-1",
+              "period": 60,
+              "stat": "Sum",
+              "yAxis": {
+                  "left": {
+                      "min": 0,
+                      "label": "Errors per minute",
+                      "showUnits": false
+                  }
+              },
+              "title": "Errors",
+              "legend": {
+                  "position": "bottom"
+              }
+          }
+      },
+      {
+          "type": "metric",
+          "x": 9,
+          "y": 1,
+          "width": 9,
+          "height": 6,
+          "properties": {
+              "metrics": [
+                  [ { "expression": "(m1/m2) * 100", "label": "Error rate", "id": "e1", "color": "#d62728", "region": "us-east-1", "visible": false } ],
+                  [ { "expression": "100 - e1", "label": "Success rate", "id": "e2", "color": "#2ca02c", "region": "us-east-1" } ],
+                  [ "AWS/ApiGateway", "5xx", "ApiId", "<apigateway.apiId>", { "id": "m1", "visible": false, "color": "#ff7f0e" } ],
+                  [ ".", "Count", ".", ".", { "id": "m2", "visible": false, "color": "#1f77b4" } ]
+              ],
+              "view": "timeSeries",
+              "stacked": false,
+              "region": "us-east-1",
+              "period": 60,
+              "stat": "Sum",
+              "title": "Success rate",
+              "yAxis": {
+                  "left": {
+                      "min": 0,
+                      "max": 100,
+                      "showUnits": false,
+                      "label": "%"
+                  }
+              }
+          }
+      },
+      {
+          "type": "text",
+          "x": 0,
+          "y": 13,
+          "width": 24,
+          "height": 1,
+          "properties": {
+              "markdown": "\n# Lambda\n"
+          }
+      },
+      {
+          "type": "text",
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 1,
+          "properties": {
+              "markdown": "\n# API\n"
+          }
+      },
+      {
+          "type": "metric",
+          "x": 0,
+          "y": 7,
+          "width": 9,
+          "height": 6,
+          "properties": {
+              "metrics": [
+                  [ "AWS/ApiGateway", "Latency", "ApiId", "<apigateway.apiId>", { "label": "Average", "stat": "Average" } ],
+                  [ "...", { "label": "Minimum", "stat": "Minimum" } ],
+                  [ "...", { "label": "Maximum", "stat": "Maximum" } ],
+                  [ "...", { "label": "Median", "stat": "p50" } ],
+                  [ "...", { "label": "p95" } ],
+                  [ "...", { "stat": "p90", "label": "p90" } ]
+              ],
+              "view": "timeSeries",
+              "stacked": false,
+              "region": "us-east-1",
+              "period": 60,
+              "yAxis": {
+                  "left": {
+                      "min": 0
+                  }
+              },
+              "stat": "p95"
+          }
+      },
+      {
+          "type": "metric",
+          "x": 0,
+          "y": 14,
+          "width": 9,
+          "height": 6,
+          "properties": {
+              "metrics": [
+                  [ "AWS/Lambda", "Invocations", "FunctionName", "rs-ec-2021-loadtest-dev-api" ]
+              ],
+              "view": "timeSeries",
+              "stacked": false,
+              "region": "us-east-1",
+              "period": 60,
+              "yAxis": {
+                  "left": {
+                      "min": 0
+                  }
+              },
+              "stat": "Sum",
+              "title": "Invocations"
+          }
+      },
+      {
+          "type": "metric",
+          "x": 9,
+          "y": 14,
+          "width": 9,
+          "height": 6,
+          "properties": {
+              "metrics": [
+                  [ "AWS/Lambda", "ConcurrentExecutions", "FunctionName", "rs-ec-2021-loadtest-dev-api" ]
+              ],
+              "view": "timeSeries",
+              "stacked": false,
+              "region": "us-east-1",
+              "period": 60,
+              "stat": "Maximum"
+          }
+      }
+  ]
+}
