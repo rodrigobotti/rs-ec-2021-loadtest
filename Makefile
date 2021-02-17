@@ -1,5 +1,5 @@
 api/start:
-	docker-compose up -d --build
+	docker-compose up -d --build api
 
 api/status:
 	docker-compose ps
@@ -11,4 +11,4 @@ test/local:
 	k6 run tests/loadtest/index.js
 
 test/docker:
-	docker run -i loadimpact/k6 run - <tests/loadtest/index.js
+	docker-compose run k6 run /tests/loadtest/index.js

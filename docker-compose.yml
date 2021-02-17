@@ -8,3 +8,18 @@ services:
       - 3000:3000
     environment:
       - PORT=3000
+    networks:
+      - loadtest
+
+  k6:
+    image: loadimpact/k6
+    environment:
+      - LOCAL_API_URL=http://api:3000
+    volumes:
+      - ./tests:/tests
+    stop_signal: SIGKILL
+    networks:
+      - loadtest
+
+networks:
+  loadtest:
