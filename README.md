@@ -1,6 +1,11 @@
+![](https://storage.googleapis.com/golden-wind/experts-club/capa-github.svg)
+
 # Testes de Carga com K6
 
-*Esse repositório nesse branch não contém o código finalizado e sim o template para dar início à aula.*
+Nessa aula vamos aprender sobre a importância de testes de performance e sua automatização.
+
+Utilizaremos a ferramenta [k6](https://k6.io) para executar nossos testes 
+e aprenderemos como escrever scripts de testes de carga em javascript, a linguagem suportada pela ferramenta.
 
 Código do projeto finalizado no branch [cheat-sheet](https://github.com/rodrigobotti/rs-ec-2021-loadtest/tree/cheat-sheet).
 
@@ -102,3 +107,9 @@ Dessa forma, para deployar a aplicação, é necessário:
 Caso você queira construir o dashboard no CloudWatch assim como eu mostrei na aula, [aqui está o json de sua definição](aws/cloudwatch.dashboard.json), basta substituir o `<apigateway.apiId>` pelo valor do appId do apigateway do seu deploy.
 
 **Note**: a criação do dashboard poderia ter sido automatizada para ser criada via `CloudFormation` dentro do `serverless.yml`.
+
+## Expert
+
+| [<img src="https://avatars.githubusercontent.com/u/5365992?v=4" width="75px">](https://github.com/rodrigobotti) |
+| :-: |
+| [Rodrigo Botti](https://github.com/rodrigobotti) |
